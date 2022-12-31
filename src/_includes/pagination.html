@@ -1,0 +1,19 @@
+<nav class="paging" aria-label="Pagination">
+  {% if previousChapter %}
+    <a class="big order-first" href="{{ previousChapter.url }}">&larr; {{ previousChapter.data.chapterTitle }}</a>
+  {% endif %}
+
+  <form action="#" id="chapterSelect" class="col-start-2">
+    <label for="chapters" class="big block">Navigate to chapter:</label>
+    <select name="chapters" id="chapters" class="input">
+      {% for item in chapters %}
+      <option {% if page.url === item.url %}selected{% endif %} value="{{ item.url }}">{{ item.data.title }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit" class="btn">Go</button>
+  </form>
+
+  {% if nextChapter %}
+    <a class="big order-last" href="{{ nextChapter.url }}">{{ nextChapter.data.chapterTitle }} &rarr;</a>
+  {% endif %}
+</nav>

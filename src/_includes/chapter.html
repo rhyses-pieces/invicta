@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+  {% include "breadcrumbs.html" %}
+  <article class="chapter">
+    <h1>{{ title }}</h1>
+    <time>Posted on {{ date }}</time>
+
+    {{ content | safe }}  
+  </article>
+
+  {% set previousChapter = chapters | getPreviousCollectionItem %}
+  {% set nextChapter = chapters | getNextCollectionItem %}
+  {% include "pagination.html" %}
+</section>
+
+{% set js %}
+  {% include "../assets/scripts/chapterChange.js" %}
+{% endset %}
+
+<script>
+  {{ js | safe }}
+</script>
+{% endblock %}

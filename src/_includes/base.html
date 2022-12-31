@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ meta.desc }}">
+    <title>{{ title }} / {{ meta.title }}</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+  </head>
+
+  <body>
+    {% include "menu.html" %}
+    
+    <main id="content" class="container mx-auto">
+      {% block content %}
+        {{ content | safe }}
+      {% endblock %}
+    </main>
+
+    {% include "footer.html" %}
+
+    {% set js %}
+      {% include "../assets/scripts/dropdown.js" %}
+      {% include "../assets/scripts/themeSwitch.js" %}
+    {% endset %}
+    <script>
+      {{ js | safe }}
+    </script>
+  </body>
+</html>

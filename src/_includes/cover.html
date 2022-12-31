@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+  <article class="chapter">
+    <h1>{{ title }}</h1>
+    <time>Posted on {{ date }}</time>
+
+    {{ content | safe }}  
+
+    <ul>
+    {% for item in collections[collectionName] %}
+      <li><a href="{{ item.url }}">{{ item.data.title }}</a> </li>
+    {% endfor %}
+    </ul>
+  </article>
+</section>
+{% endblock %}

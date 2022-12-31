@@ -1,0 +1,16 @@
+<nav id="menu" aria-label="Main menu">
+  <ul>
+    <li><a href="/">index</a></li>
+    <li><a href="/journal">dream journal</a></li>
+    <li><a href="/posts">blog</a></li>
+    <li class="dropdown">
+      <button onclick="dropdownClick()" class="title" aria-expanded="false" aria-controls="writingDropdown">
+        writing
+      </button>
+      <ul class="menu" id="writingDropdown">
+        <li><a href="/writing/fic">fics</a></li>
+        <li><a href="/writing/misc">others</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
