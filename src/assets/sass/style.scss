@@ -31,6 +31,8 @@ article {
   padding: 2em;
 }
 
+// chapter
+
 .chapter {
   font-family: var(--serif-font);
   font-size: 1.25rem;
@@ -52,6 +54,35 @@ time {
 
   #chapterSelect {
     grid-column-start: 2;
+  }
+}
+
+// forms
+
+input, select, textarea {
+  font-family: var(--accent-font);
+  font-size: 1.25rem;
+  color: darken(variables.$accent, 20%);
+  background-color: var(--accent-2);
+  border: 1px solid darken(variables.$accent-2, 20%);
+  padding: 0.25em 0.5em;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--accent-font);
+  font-size: 1.25rem;
+  background-color: var(--accent);
+  border: 1px solid darken(variables.$accent, 20%);
+  padding: 0.25em 0.5em;
+
+  &:focus {
+    outline: 2px solid var(--body-text);
   }
 }
 
@@ -141,34 +172,5 @@ time {
         padding: 0.5rem 1rem;
       }
     }
-  }
-}
-
-// forms
-
-input, select, textarea {
-  font-family: var(--accent-font);
-  font-size: 1.25rem;
-  color: darken(variables.$accent, 20%);
-  background-color: var(--accent-2);
-  border: 1px solid darken(variables.$accent-2, 20%);
-  padding: 0.25em 0.5em;
-}
-
-label {
-  font-weight: bold;
-  display: block;
-}
-
-button {
-  cursor: pointer;
-  font-family: var(--accent-font);
-  font-size: 1.25rem;
-  background-color: var(--accent);
-  border: 1px solid darken(variables.$accent, 20%);
-  padding: 0.25em 0.5em;
-
-  &:focus {
-    outline: 2px solid var(--body-text);
   }
 }
