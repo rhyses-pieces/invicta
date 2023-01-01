@@ -18,7 +18,7 @@
   <body>
     {% include "menu.html" %}
     
-    <main id="content" class="container mx-auto">
+    <main id="content">
       {% block content %}
         {{ content | safe }}
       {% endblock %}
