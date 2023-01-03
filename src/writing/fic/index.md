@@ -5,8 +5,11 @@ layout: base.html
 
 # {{ title | title }}
 
-<ul>
+<section>
   {% for book in collections.writing %}
-  <li><a href="{{ book.url }}">{{ book.data.bookTitle }}</a></li>
+  <article>
+    <h2><a href="{{ book.url }}">{{ book.data.bookTitle }}</a></h2>
+    <p>{{ book.data.summary }}</p>
+  </article>
   {% endfor %}
-</ul>
+</section>

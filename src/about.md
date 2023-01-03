@@ -1,6 +1,6 @@
 ---
 title: about
-layout: base.html
+layout: page.html
 ---
 
 hi

@@ -1,6 +1,6 @@
 ---
 title: writing
-layout: base.html
+layout: page.html
 ---
 
 this is my creative z o n e

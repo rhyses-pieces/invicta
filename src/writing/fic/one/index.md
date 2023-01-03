@@ -1,8 +1,5 @@
 ---
-title: book one
-tags:
-- list
-order: 0
+summary: hey
 layout: cover.html
 ---
 
