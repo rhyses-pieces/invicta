@@ -1,17 +1,23 @@
 ---
 title: contact
-layout: base.html
+layout: page.html
 ---
 
-<form action="#" method="post">
+<h1>Contact</h1>
+
+<p>Unless otherwise stated, all fields are required.</p>
+
+<p>Send me an email through this contact form!</p>
+
+<form action="https://airform.io/rhys.k.kim@gmail.com" name="contact" method="post">
   <label for="name">Name:</label>
-  <input type="text" name="name" id="name">
+  <input type="text" name="name" id="name" required>
 
   <label for="email">Email:</label>
-  <input type="email" name="email" id="email">
+  <input type="email" name="email" id="email" required>
 
   <label for="comments">Comments:</label>
-  <textarea name="comments" id="comments" cols="30" rows="10"></textarea>
+  <textarea name="comments" id="comments" cols="30" rows="10" required></textarea>
   
   <button type="submit">Send!</button>
 </form>

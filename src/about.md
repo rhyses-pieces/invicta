@@ -3,4 +3,6 @@ title: about
 layout: page.html
 ---
 
-hi
+# About
+
+hello! this is my about page

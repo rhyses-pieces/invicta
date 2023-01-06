@@ -4,7 +4,7 @@
 <section>
   <article class="post">
     <h1>{{ title }}</h1>
-    <time>{{ date }}</time>
+    <time>{{ page.date.toUTCString() }}</time>
 
     {{ content | safe }}  
   </article>

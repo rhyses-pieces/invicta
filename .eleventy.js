@@ -1,7 +1,6 @@
 const { execSync } = require("child_process");
 const fs = require('fs');
 const path = require('path');
-const navigate = require('@11ty/eleventy-navigation');
 const rssPlugin = require('@11ty/eleventy-plugin-rss');
 const ancestry = require('@tigersway/eleventy-plugin-ancestry');
 
@@ -11,7 +10,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({'./src/assets/img': 'img'});
   eleventyConfig.addPassthroughCopy({'./src/assets/fonts': 'fonts'});
   eleventyConfig.addPassthroughCopy({'./src/assets/scripts': 'scripts'});
-  eleventyConfig.addPlugin(navigate);
   eleventyConfig.addPlugin(rssPlugin);
   eleventyConfig.addPlugin(ancestry);
   const books = getBooks("./src/writing/fic/");

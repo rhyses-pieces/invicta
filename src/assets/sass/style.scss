@@ -6,10 +6,12 @@ html {
   background: var(--primary-bg) var(--bg-url);
   background-blend-mode: overlay;
   height: 100vh;
+  box-sizing: border-box;
 }
 
 body {
   font-family: var(--body-font);
+  font-size: 1rem;
 }
 
 h1, h2 {
@@ -43,12 +45,21 @@ p:last-child {
   margin-bottom: 0;
 }
 
+::marker {
+  color: darken(v.$accent-2, 30%);
+}
+
 // layout
 
 #content {
   display: grid;
   justify-content: center;
   margin-bottom: 5rem;
+  max-width: 100%;
+
+  section {
+    max-width: calc(80ch + 4em);
+  }
 }
 
 article {
@@ -69,15 +80,37 @@ article {
       background-color: var(--accent-2);
     }
   }
+
+  @media screen and (max-width: 720px) {
+    width: unset;
+  }
+}
+
+// index
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  margin-top: 1em;
+  max-width: 80ch;
+
+  article {
+    width: unset;
+  }
+
+  @media screen and (max-width: 720px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 // diary posts
 
 .post {
   background-image: linear-gradient(var(--accent-2) 1px, transparent 0px);
-  background-size: 100% 1.5em;
-  background-position-y: 1.2rem;
-  line-height: 1.5em;
+  background-size: 100% 1.125em;
+  background-position-y: 1.25rem;
+  line-height: 1.125em;
 }
 
 // chapter
@@ -86,10 +119,6 @@ article {
   font-family: var(--serif-font);
   font-size: 1.25rem;
   line-height: 1.5;
-
-  ::marker {
-    color: lighten(v.$body-text, 20%);
-  }
 }
 
 time {
@@ -184,10 +213,17 @@ button {
   }
 }
 
+form {
+  button {
+    margin: 0 auto;
+  }
+}
+
 // menu
 
 .dropdown {
   position: relative;
+  place-self: center;
 
   .title {
     appearance: none;
@@ -213,9 +249,9 @@ button {
   .menu {
     position: absolute;
     list-style: none;
+    display: block;
     background-color: var(--accent);
-    padding: 0.5em 1em;
-    min-width: 7ch;
+    padding: 1em 0;
     top: calc(100% + 0.25rem);
     left: 50%;
     transform: rotateX(-90deg) translateX(-50%);
@@ -223,6 +259,13 @@ button {
     opacity: 0.3;
     visibility: hidden;
     transition: 280ms all 120ms ease-in-out;
+
+    @media screen and (max-width: 720px) {
+      position: relative;
+      display: none;
+      width: 100%;
+      padding: 0.5em 0;
+    }
   }
 
   &:hover, &:focus-within {
@@ -230,6 +273,10 @@ button {
       opacity: 1;
       transform: rotateX(0) translateX(-50%);
       visibility: visible;
+      
+      @media screen and (max-width: 720px) {
+        display: block;
+      }
     }
   }
 }
@@ -247,6 +294,10 @@ button {
     padding: 0;
     display: grid;
 
+    @media screen and (max-width: 720px) {
+      grid-auto-flow: row;
+    }
+
     > li {
       margin: 0 0.5rem;
       padding: 0;
@@ -258,6 +309,7 @@ button {
         text-decoration: none;
         display: block;
         color: var(--primary-bg);
+        padding: 0.5em 1em;
 
         &:hover {
           background-color: var(--accent-2);
@@ -273,6 +325,15 @@ button {
       > a, .title {
         padding: 0.5rem 1rem;
       }
+    }
+  }
+
+  #mobile {
+    display: none;
+
+    @media screen and (max-width: 720px) {
+      display: block;
+      place-self: end;
     }
   }
 }
