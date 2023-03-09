@@ -1,4 +1,4 @@
-<nav id="breadcrumbs" aria-label="Breadbrumbs">
+<nav id="breadcrumbs" aria-label="Breadcrumbs">
   <ul>
   {% for item in page.filePathStem | ancestors %}
     <li><a href="{{ item.url }}">{{ item.data.title or item.fileSlug }}</a></li>

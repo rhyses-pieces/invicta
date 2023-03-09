@@ -1,10 +1,20 @@
 <nav class="paging" aria-label="Pagination">
   {% if previousChapter %}
-    <a class="big order-first" href="{{ previousChapter.url }}">&larr; {{ previousChapter.data.chapterTitle }}</a>
+    <a href="{{ previousChapter.url }}">&larr; {{ previousChapter.data.chapterTitle }}</a>
+  {% else %}
+    {% set previousPost = collections.blog | getPreviousCollectionItem(page) %}
+    {% if previousPost %}
+      <a href="{{ previousPost.url }}">&larr; {{ previousPost.data.title }}</a>
+    {% endif %}
+    {% set previousEntry = collections.journal | getPreviousCollectionItem(page) %}
+    {% if previousEntry %}
+      <a href="{{ previousEntry.url }}">&larr; {{ previousEntry.data.title }}</a>
+    {% endif %}
   {% endif %}
 
-  <form action="#" id="chapterSelect" class="col-start-2">
-    <label for="chapters" class="big block">Navigate to chapter:</label>
+  {% if chapters %}
+  <form action="#" id="chapterSelect">
+    <label for="chapters">Navigate to chapter:</label>
     <select name="chapters" id="chapters" class="input">
       {% for item in chapters %}
       <option {% if page.url === item.url %}selected{% endif %} value="{{ item.url }}">{{ item.data.title }}</option>
@@ -12,8 +22,18 @@
     </select>
     <button type="submit" class="btn">Go</button>
   </form>
+  {% endif %}
 
   {% if nextChapter %}
-    <a class="big order-last" href="{{ nextChapter.url }}">{{ nextChapter.data.chapterTitle }} &rarr;</a>
+    <a href="{{ nextChapter.url }}">{{ nextChapter.data.chapterTitle }} &rarr;</a>
+  {% else %}
+    {% set nextPost = collections.blog | getNextCollectionItem(page) %}
+    {% if nextPost %}
+      <a href="{{ nextPost.url }}">{{ nextPost.data.title }} &rarr;</a>
+    {% endif %}
+    {% set nextEntry = collections.journal | getNextCollectionItem(page) %}
+    {% if nextEntry %}
+      <a href="{{ nextEntry.url }}">{{ nextEntry.data.title }} &rarr;</a>
+    {% endif %}
   {% endif %}
 </nav>

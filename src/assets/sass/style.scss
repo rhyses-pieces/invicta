@@ -102,13 +102,47 @@ article {
   }
 }
 
-// diary posts
+// posts
 
 .post {
   background-image: linear-gradient(var(--accent-3) 1px, transparent 0px);
   background-size: 100% 1.125em;
   background-position-y: 1.25rem;
   line-height: 1.125em;
+}
+
+#blog {
+  .post {
+    position: relative;
+    left: 0;
+    margin-bottom: 2rem;
+
+    &:nth-child(odd) {
+      position: relative;
+      left: 2rem;
+    }
+
+    h2 {
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+#journal {
+  .post {
+    position: relative;
+    right: 0;
+    margin-bottom: 2rem;
+
+    &:nth-child(even) {
+      position: relative;
+      right: -2rem;
+    }
+
+    h2 {
+      margin-bottom: 1.5rem;
+    }
+  }
 }
 
 // chapter
@@ -178,12 +212,17 @@ nav {
 input, select, textarea {
   font-family: var(--small);
   font-size: 1rem;
-  color: darken(v.$accent, 20%);
-  background-color: var(--accent-2);
-  border: 1px solid darken(v.$accent-2, 20%);
+  color: var(--body-text);
+  background-color: var(--accent-3);
+  border: 1px solid darken(v.$accent-3, 20%);
   width: 100%;
   padding: 0.25em 0.5em;
   margin-bottom: 1em;
+
+  &:focus, &:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+  }
 }
 
 label {
